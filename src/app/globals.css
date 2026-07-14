@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-50: #eef3fb;
+  --color-navy-100: #d9e4f5;
+  --color-navy-600: #1e3a6e;
+  --color-navy-700: #16305e;
+  --color-navy-800: #10264d;
+  --color-navy-900: #0b1f3f;
+  --color-mist-50: #f6f9fd;
+  --color-mist-100: #eef4fb;
+  --color-mist-200: #e2ecf7;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+  /* Entrance animations translate elements on the x-axis before they reveal;
+     clip keeps that transient offset from creating horizontal scroll. */
+  overflow-x: clip;
+}
+
+body {
+  @apply bg-white font-sans text-slate-600 antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+/* Visible, consistent keyboard focus everywhere. */
+:focus-visible {
+  outline: 2px solid theme(--color-blue-600);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::selection {
+  background-color: theme(--color-blue-100);
+  color: theme(--color-navy-900);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

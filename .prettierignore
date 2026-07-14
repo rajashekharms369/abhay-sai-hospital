@@ -1,0 +1,8 @@
+node_modules
+.next
+out
+public
+assets
+references
+package-lock.json
+next-env.d.ts
