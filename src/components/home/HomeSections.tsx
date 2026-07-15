@@ -69,7 +69,6 @@ export function SpecialtiesOverview() {
 }
 
 export function WhyChooseUs() {
-  const [first, ...rest] = whyChooseUs;
   return (
     <section aria-labelledby="why-title" className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
       <Reveal>
@@ -81,21 +80,7 @@ export function WhyChooseUs() {
         />
       </Reveal>
       <StaggerGroup className="mt-10 grid gap-4 sm:grid-cols-2">
-        {first ? (
-          <StaggerItem>
-            <div className="h-full rounded-2xl bg-gradient-to-br from-blue-600 to-blue-500 p-6 text-white shadow-sm">
-              <span
-                aria-hidden
-                className="flex size-12 items-center justify-center rounded-xl bg-white/15"
-              >
-                <first.icon className="size-6" />
-              </span>
-              <h3 className="mt-4 text-lg font-semibold">{first.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-blue-50">{first.description}</p>
-            </div>
-          </StaggerItem>
-        ) : null}
-        {rest.map((feature) => (
+        {whyChooseUs.map((feature) => (
           <StaggerItem key={feature.id}>
             <FeatureCard feature={feature} />
           </StaggerItem>
