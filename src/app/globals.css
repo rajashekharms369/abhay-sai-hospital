@@ -24,14 +24,16 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 7rem;
-  /* Entrance animations translate elements on the x-axis before they reveal;
-     clip keeps that transient offset from creating horizontal scroll. */
+  /* Guard against any element widening the page on mobile;
+     `hidden` is the fallback for engines without `clip` support. */
+  overflow-x: hidden;
   overflow-x: clip;
 }
 
 body {
   @apply bg-white font-sans text-slate-600 antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
   overflow-x: clip;
 }
 

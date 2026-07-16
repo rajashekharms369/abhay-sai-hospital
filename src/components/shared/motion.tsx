@@ -6,11 +6,17 @@ import { cn } from "@/lib/utils";
 
 type Direction = "up" | "down" | "left" | "right" | "none";
 
+/*
+ * All entrance offsets are vertical only. Horizontal offsets (translateX) on
+ * below-the-fold elements widen the document on mobile browsers before the
+ * reveal runs — Android then zooms out to fit — so left/right map to a
+ * vertical slide as well.
+ */
 const offsets: Record<Direction, { x: number; y: number }> = {
   up: { x: 0, y: 24 },
   down: { x: 0, y: -24 },
-  left: { x: 24, y: 0 },
-  right: { x: -24, y: 0 },
+  left: { x: 0, y: 24 },
+  right: { x: 0, y: 24 },
   none: { x: 0, y: 0 },
 };
 

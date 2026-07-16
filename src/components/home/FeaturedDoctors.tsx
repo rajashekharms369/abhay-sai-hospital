@@ -100,9 +100,12 @@ export function FeaturedDoctors() {
             if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false);
           }}
         >
+          {/* [contain:layout] keeps the track's scrollable overflow out of the
+              document's scroll area — without it, mobile browsers zoom out to
+              fit the full width of all slides. */}
           <ul
             ref={trackRef}
-            className="-mx-1 scrollbar-none flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-1 pb-2"
+            className="-mx-1 scrollbar-none flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-1 pb-2 [contain:layout]"
           >
             {doctors.map((doctor) => (
               <li
